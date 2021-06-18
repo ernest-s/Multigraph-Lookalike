@@ -1,0 +1,29 @@
+dataset_params:
+  list_thresh: 12
+  card_thresh: 1000
+  freq_thresh: 1000
+  root_dir: data/adform
+  list_cols: [c6, c9]
+  freq_thresh_list: 10000
+  cat_cols: [c1,c2,c3,c5]
+  output_file_name: clean_data.json
+  feat_count_file_name: feature_count.csv
+  input_file_name: adform.click.2017.05.json
+
+embeddings:
+  x_max: 100
+  emb_dim: 16
+  alpha: 0.75
+  n_embedding: 16
+  base_std: 0.005
+  batch_size: 2048
+  num_epochs: [350, 150]
+
+graphs:
+  n_iter: 20
+  neighbors: 10
+  stop_thresh: 0.2
+
+score:
+  nn: 1
+  eps: 1e-6
