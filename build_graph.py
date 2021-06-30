@@ -1,10 +1,10 @@
 import os
-import yaml
 import warnings
 import pandas as pd
 
 from utils import np_pad
 from argparse import ArgumentParser
+from yaml import CLoader as Loader, load
 from modules.multigraph import hellinger_distance, NNGraph, train_graph
 
 warnings.filterwarnings("ignore")
@@ -16,8 +16,8 @@ if __name__ == "__main__":
     parser.add_argument("--h_dist", default=1, help="Calculate Hellinger Distance between attributes")
 
     opt = parser.parse_args()
-    with open ("config.yaml") as f:
-        config = yaml.load(f)
+    with open("config.yaml") as stream:
+        config = load(stream, Loader=Loader)
 
     nn = config["graphs"]["neighbors"]
     n_iter = config["graphs"]["n_iter"]
@@ -69,5 +69,3 @@ if __name__ == "__main__":
         graph = NNGraph(graph_path, ids, nn)
         train_graph(graph, weights, False, None, n_iter, stop_thresh)
         graph.save_graph()
-
-
