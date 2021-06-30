@@ -1,11 +1,11 @@
 import os
-import yaml
 import warnings
 import pandas as pd
 
 from argparse import ArgumentParser
 from modules.scoring import ScoreSeed
 from modules.multigraph import NNGraph
+from yaml import CLoader as Loader, load
 
 warnings.filterwarnings("ignore")
 
@@ -17,8 +17,8 @@ if __name__ == "__main__":
     parser.add_argument("--out_path", default="data/adform/extn.csv", help="Path to save extension ids")
 
     opt = parser.parse_args()
-    with open ("config.yaml") as f:
-        config = yaml.load(f)
+    with open("config.yaml") as stream:
+        config = load(stream, Loader=Loader)
 
     nn = config["score"]["nn"]
     eps = float(config["score"]["eps"])
