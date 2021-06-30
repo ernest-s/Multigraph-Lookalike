@@ -1,14 +1,12 @@
 import os
-import yaml
 import torch
 import warnings
 import numpy as np
 import pandas as pd
 
 from tqdm import tqdm
-
 from argparse import ArgumentParser
-
+from yaml import CLoader as Loader, load
 from modules.embedding import gen_batches, embed_loss, cuda, orthonorm_basis
 from modules.embedding import create_cooc_matrix, melt_df, CoOccurrenceOptimization
 
@@ -41,8 +39,8 @@ if __name__ == "__main__":
     parser.add_argument("--co_occurrence", default=1, help="Calculate co-occurrence matrix")
 
     opt = parser.parse_args()
-    with open ("config.yaml") as f:
-        config = yaml.load(f)
+    with open("config.yaml") as stream:
+        config = load(stream, Loader=Loader)
 
     x_max = config["embeddings"]["x_max"]
     alpha = config["embeddings"]["alpha"]
