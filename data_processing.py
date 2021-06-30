@@ -1,18 +1,18 @@
 import os
-import yaml
 import warnings
 import pandas as pd
 
 from itertools import chain
 from utils import hash_values
 from collections import Counter
+from yaml import CLoader as Loader, load
 
 warnings.filterwarnings("ignore")
 
 if __name__ == "__main__":
 
-    with open ("config.yaml") as f:
-        config = yaml.load(f)
+    with open("config.yaml") as stream:
+        config = load(stream, Loader=Loader)
 
     root_dir = config["dataset_params"]["root_dir"]
     cat_cols = config["dataset_params"]["cat_cols"]
