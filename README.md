@@ -1,6 +1,6 @@
 # Multigraph Approach Towards a Scalable, Robust Look-alike Audience Extension System
 
-This repository contains the source code for the paper Multigraph Approach Towards a Scalable, Robust Look-alike Audience Extension System.
+This repository contains the source code for the paper [Multigraph Approach Towards a Scalable, Robust Look-alike Audience Extension System](http://papers.adkdd.org/2021/papers/adkdd21-selvaraj-multigraph.pdf) by [Ernest Kirubakaran Selvaraj](https://www.linkedin.com/in/ernest-s-kirubakaran/), [Nilamadhaba Mohapatra](https://www.linkedin.com/in/nilamadhaba-mohapatra/), [Tushar Agarwal](https://www.linkedin.com/in/tushar-agarwal-7ab26599/) and [Swapnasarit Sahu](https://www.linkedin.com/in/swapnasaritsahu/).
 
 ### Installation
 
